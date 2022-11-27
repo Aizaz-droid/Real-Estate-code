@@ -147,7 +147,7 @@ class Listingfeature
     }
       public void print()
       {
-          System.out.println("\n\nListingfeature Class:\npool: "+pool+"laundry: "+laundry +"Fire: "+ Fire+"Ac: "+ Ac+"Basement: "+ Basement+"Garage: "+Garage +"fence: "+fence +"garden: "+garden +"patio: "+patio);   
+          System.out.println("\n\nListingfeature Class:\npool: "+pool+" laundry: "+laundry +" Fire: "+ Fire+" Ac: "+ Ac+" Basement: "+ Basement+" Garage: "+Garage +" fence: "+fence +" garden: "+garden +" patio: "+patio);   
     
       }
 }
