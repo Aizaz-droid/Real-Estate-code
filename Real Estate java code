@@ -1,0 +1,250 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package realestate;
+/**
+ *
+ * @author pakistan
+ */
+
+//Zipcode
+class zipcode
+{
+    private int id;
+    private int zip;
+    private double latitude;
+    private double longitude;
+    private String city;
+    private String state;
+    private String country;
+    //Constructor
+    public zipcode(int id, int zip, double latitude, double longitude, String city, String state, String country) {
+        this.id = id;
+        this.zip = zip;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.city = city;
+        this.state = state;
+        this.country = country;
+    }
+    public void print()
+    {
+      System.out.println("\n\nZipcode Class:\nid: "+id+" zip "+zip+" latitude: "+" longitude: "+longitude+" city: "+city+" state: "+ state+" country: "+country);
+    }
+   
+}
+
+//Listingphoto
+class Listingphoto
+{
+    private int photo_id;
+    private String photo_name;
+    
+    private byte profile_pic=5;
+    //Constructor
+
+    public Listingphoto(int photo_id, String photo_name ) {
+        this.photo_id = photo_id;
+        this.photo_name = photo_name;
+       
+    }
+
+    //Functions:
+    public void AddProfilePic()
+    {
+        System.out.println("\nProfile photo Added..");
+    }
+    public void AddPhoto()
+    {
+        System.out.println("\nPhoto Added..");
+    }
+    public void DeletePhoto()
+    {
+        System.out.println("\nPhoto Deleted..");
+    }
+    public void print()
+    {
+        System.out.println("\n\nListingphoto Class:\nphoto_id: "+photo_id+" Photo_Name: "+photo_name);
+    }
+    
+
+}
+//ListingType
+class ListingType
+{
+      
+      private  boolean Single_family;
+      private boolean Multi_family;
+      //Constructor
+      ListingType(boolean Single_family,boolean Multi_family)
+      {
+         
+          this.Single_family=Single_family;
+          this.Multi_family=Multi_family;
+      }
+      //Functions
+      public void Addtype()
+    {
+        System.out.println("\nType added..");
+    }
+     public void Deletetype()
+    {
+        System.out.println("\nType Deleted..");
+    }
+    public void print()
+    {
+        System.out.println("\n\nListingType Class:\nSingle_family "+Single_family+" Multi_family: "+Multi_family);
+}
+}
+
+//Listingfeature
+class Listingfeature       
+{
+      private  boolean pool;
+      private  boolean laundry;
+      private  boolean Fire;
+      private  boolean Ac;
+      private  boolean Basement;
+      private  boolean Garage;
+      private  boolean fence;
+      private  boolean garden;
+      private  boolean patio;
+ 
+      //Constructor
+      Listingfeature(boolean pool,boolean laundry,boolean Fire,boolean Ac,boolean Basement,boolean Garage,boolean fence,boolean garden,boolean patio)   
+      {
+          
+          this.pool=pool;
+          this.laundry=laundry;
+          this.Fire=Fire;
+          this.Ac=Ac;
+          this.Basement=Basement;
+          this.Garage=Garage;
+          this.fence=fence;
+          this.garden=garden;
+          this.patio=patio;
+      }
+    //Functions
+      public void AddFeature()
+    {
+        System.out.println("\nFeature added..");
+        System.out.println("\n__________________________________________________________________________");
+
+    }
+     public void DeleteFeature()
+    {
+        System.out.println("\nFeature Deleted..");
+        System.out.println("\n__________________________________________________________________________");
+
+    }
+      public void EditFeature()
+    {
+        System.out.println("\nFeature Edited..");
+        System.out.println("\n__________________________________________________________________________");
+
+    }
+      public void print()
+      {
+          System.out.println("\n\nListingfeature Class:\npool: "+pool+"laundry: "+laundry +"Fire: "+ Fire+"Ac: "+ Ac+"Basement: "+ Basement+"Garage: "+Garage +"fence: "+fence +"garden: "+garden +"patio: "+patio);   
+    
+      }
+}
+
+
+//Composiion Class Property listing
+class Propertylisting
+{
+     private int MLS_id;
+     private String address;
+     private String zipcode;
+     private int price;
+     private int size;
+     private int bed;
+     private int bath;
+     private int year;
+     private char status;
+     private boolean openhouse;
+     private String description;
+     private String state; 
+     //other class objects
+     private zipcode zp;
+     private Listingphoto lp;
+     private ListingType lt;
+     private Listingfeature lf;
+
+        public Propertylisting(int MLS_id, String address, String zipcode, int price, int size, int bed, int bath, int year, char status, boolean openhouse, String description, String state, zipcode zp, Listingphoto lp, ListingType lt, Listingfeature lf) {
+            this.MLS_id = MLS_id;
+            this.address = address;
+            this.zipcode = zipcode;
+            this.price = price;
+            this.size = size;
+            this.bed = bed;
+            this.bath = bath;
+            this.year = year;
+            this.status = status;
+            this.openhouse = openhouse;
+            this.description = description;
+            this.state = state;
+            this.zp = zp;
+            this.lp = lp;
+            this.lt = lt;
+            this.lf = lf;
+        }
+     
+        
+     //Functions
+      public void AddListing()
+    {
+        System.out.println("Listing added..");
+        lp.AddPhoto();
+        lp.AddProfilePic();
+        lt.Addtype();
+        lf.AddFeature();
+    }
+       public void DeleteListing()
+    {
+        System.out.println("Listing Deleted..");
+        lp.DeletePhoto();
+        lt.Deletetype();
+        lf.DeleteFeature();
+    }
+      public void EditListing()
+    {
+        System.out.println("Listing Edited..");
+        lf.EditFeature();
+    }
+      public void print()
+      {
+     System.out.println("\n\nPropertylisting Class: \nMLS_id: "+MLS_id+" address: "+address+" zipcode: "+zipcode+ " price: "+price+ " size: "+size+" bed: "+bed+" bath: "+bath+ " year: "+year+ " status: "+status+" openhouse: "+openhouse+" description: "+description+" state:" +state) ;
+     zp.print();
+     lp.print();
+     lt.print();
+     lf.print();
+      }
+}
+public class Realestate {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+      zipcode zp=new zipcode(1,64000,22.546,23.87,"Rawalpindi","Punjab","Pakistan");
+      
+      Listingphoto  lp = new Listingphoto(1,"mypic");
+      
+      ListingType lt=new ListingType(true,true);
+      
+      Listingfeature lf=new Listingfeature(false,true,true,true,true,true,true,true,false);
+      
+      Propertylisting pl=new Propertylisting(8976,"Askari-11","654AS",89087,76,5,3,2012,'y',true,"Double storey","Punjab",zp,lp,lt,lf);
+        
+        pl.AddListing();
+        pl.DeleteListing();
+        pl.EditListing();
+        pl.print();
+    }
+    
+}
